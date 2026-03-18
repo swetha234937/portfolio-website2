@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swetha M | Cloud & DevOps Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    transition: 0.4s;
+}
+
+/* NAVBAR */
+header {
+    position: sticky;
+    top: 0;
+    background: #020617;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* DARK MODE */
+.light {
+    background: #ffffff;
+    color: black;
+}
+
+.light header {
+    background: #ddd;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    border: none;
+    cursor: pointer;
+}
+
+/* SECTION */
+section {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+/* SKILLS */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    background: #1e293b;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+/* PROJECTS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* CONTACT */
+input, textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #020617;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Swetha M</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <button onclick="toggleMode()">🌙</button>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <h1>Hello, I'm <span>Swetha</span></h1>
+    <p>Cloud & AWS Enthusiast | DevOps Learner</p>
+    <button class="btn">View My Work</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fade">
+    <h2>About Me</h2>
+    <p>
+        I'm a Computer Science Engineering student passionate about 
+        Cloud Computing, AWS, and DevOps. I enjoy building scalable 
+        applications and working with modern technologies.
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">AWS</div>
+        <div class="skill">Cloud</div>
+        <div class="skill">Docker</div>
+        <div class="skill">Linux</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">DevOps</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+    <h2>Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>AWS Website Hosting</h3>
+            <p>Static website deployed using S3</p>
+        </div>
+        <div class="card">
+            <h3>Blockchain Voting</h3>
+            <p>Secure voting using React & Solidity</p>
+        </div>
+        <div class="card">
+            <h3>E-Commerce Website</h3>
+            <p>Frontend project using JS</p>
+        </div>
+    </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" class="fade">
+    <h2>Resume</h2>
+    <p>B.E Computer Science Engineering</p>
+    <p>Focused on Cloud, AWS & DevOps</p>
+    <button class="btn">Download Resume</button>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+    <h2>Contact Me</h2>
+    <form onsubmit="return sendMsg()">
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message"></textarea>
+        <button class="btn">Send</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Swetha M</p>
+</footer>
+
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light");
+}
+
+function sendMsg() {
+    alert("Message sent 🚀");
+    return false;
+}
+
+/* SCROLL ANIMATION */
+const elements = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        if (position < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
