@@ -28,7 +28,7 @@
 
 ##  Live Demo
 
- [View Portfolio](http://your-bucket-name.s3-website-us-east-1.amazonaws.com)
+ [View Portfolio](http://aws-project30.s3-website-us-east-1.amazonaws.com/)
 
 ---
 
